@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Projects templates</h1>
+
+    <p>{{ message }}</p>
+
+    {% if number > 10 %}
+        <p>number is greater than 10 </p>
+    {% elif number < 10 %}
+        <p>number is less than 10 </p>
+    {% else %}
+        <p>number is equal to 10 </p>
+    {% endif %}
+
+    {% for num in list %}
+        <p>{{ num }}</p>
+    {% endfor %}
+
+
+    {% for project in projects %}
+
+        <a href="{% url 'projects:project' project.id %}">
+            <h3>{{ project.id }} ----- {{ project.title }} ----- {{ project.description }}</h3>
+        </a>
+
+    {% endfor %}
+
+
+
+{% endblock %}
