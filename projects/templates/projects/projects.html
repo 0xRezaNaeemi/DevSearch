@@ -1,31 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Projects templates</h1>
+    <h1>Project List</h1>
 
-    <p>{{ message }}</p>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
 
-    {% if number > 10 %}
-        <p>number is greater than 10 </p>
-    {% elif number < 10 %}
-        <p>number is less than 10 </p>
-    {% else %}
-        <p>number is equal to 10 </p>
-    {% endif %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Vote Ratio</th>
+            <th>Vote Up</th>
+            <th>Created at</th>
+            <th>Detail</th>
+        </tr>
 
-    {% for num in list %}
-        <p>{{ num }}</p>
-    {% endfor %}
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.title }}</td>
+                <td>{{ project.vote_ratio }}%</td>
+                <td>{{ project.vote_total }}</td>
+                <td>{{ project.created }}</td>
+                <td><a href="{% url 'projects:project' project.id %}">More Details</a></td>
+            </tr>
+        {% endfor %}
 
 
-    {% for project in projects %}
-
-        <a href="{% url 'projects:project' project.id %}">
-            <h3>{{ project.id }} ----- {{ project.title }} ----- {{ project.description }}</h3>
-        </a>
-
-    {% endfor %}
-
-
+    </table>
 
 {% endblock %}

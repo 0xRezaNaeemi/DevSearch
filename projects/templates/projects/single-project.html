@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ project.id }} : {{ project.title }}</h1>
+<h1>{{ project.title }}</h1>
 <p>{{ project.description }}</p>
+
+{#    {% for tag in tags %}#}
+{#    	<span style="border: 1px solid grey">{{ tag.name }}</span>#}
+{#    {% endfor %}#}
+{#    <hr>#}
+    {% for tag2 in project.tags.all %}
+    	<span style="border: 1px solid grey">{{ tag2.name }}</span>
+    {% endfor %}
+
 {% endblock %}

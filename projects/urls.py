@@ -3,8 +3,8 @@ from . import views
 
 app_name = 'projects'
 urlpatterns = [
-    path('', views.projects, name='projects'),
-    path('<str:pk>', views.project, name='project'),
+    path('', views.projects_view, name='projects'),
+    path('<str:pk>', views.project_view, name='project'),
 
 
 ]
