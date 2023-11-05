@@ -12,11 +12,13 @@
 
     <table>
         <tr>
-            <th>Project Title</th>
+            <th>Title</th>
             <th>Vote Ratio</th>
             <th>Vote Up</th>
-            <th>Created at</th>
-            <th>Edit project</th>
+            <th>Created</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
         </tr>
 
         {% for project in projects %}
@@ -29,6 +31,7 @@
                 <td>{{ project.created }}</td>
                 <td><a href="{% url 'projects:update_project' project.id %}">Edit</a></td>
                 <td><a href="{% url 'projects:delete_project' project.id %}">Delete</a></td>
+            <td><a href="{% url 'projects:project' project.id %}">View</a></td>
 
             </tr>
 
