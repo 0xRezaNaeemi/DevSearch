@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Profile
 
 
+
 def profiles_view(request):
     profiles = Profile.objects.all()
     context = {
